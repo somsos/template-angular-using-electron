@@ -1,11 +1,18 @@
 {
   "name": "ng-exe",
   "version": "0.0.0",
+  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href ./",
     "watch": "ng build --watch --configuration development",
+
+    "electron-build": "npm run build && npm run copy-req-files && npm run build-electron-node && npm run electron-build-exe",
+    "electron-build-exe": "npx electron-packager ./dist/ng-exe/browser/ --platform=linux --arch=x64 --out=dist --publish=never",
+    "copy-req-files": "npx copyfiles ./package.json ./dist/ng-exe/browser/",
+    "build-electron-node": "tsc ./src-desktop/* --outDir ./dist/ng-exe/browser/",
+
     "test": "ng test"
   },
   "private": true,
@@ -26,6 +33,9 @@
     "@angular/cli": "^19.2.10",
     "@angular/compiler-cli": "^19.2.0",
     "@types/jasmine": "~5.1.0",
+    "copyfiles": "^2.4.1",
+    "electron": "^36.1.0",
+    "electron-packager": "^17.1.2",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
