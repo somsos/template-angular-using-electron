@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-exe": {
+    "Calculadora-MWD": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,12 +17,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ng-exe",
+            "outputPath": "dist/Calculadora-MWD",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": [ ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -32,7 +30,11 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss"
+            ],
+            "allowedCommonJsDependencies": [
+              "papaparse"
             ],
             "scripts": []
           },
@@ -46,8 +48,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
                 }
               ],
               "outputHashing": "all"
@@ -64,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ng-exe:build:production"
+              "buildTarget": "Calculadora-MWD:build:production"
             },
             "development": {
-              "buildTarget": "ng-exe:build:development"
+              "buildTarget": "Calculadora-MWD:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -91,6 +93,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -100,6 +103,6 @@
     }
   },
   "cli": {
-    "analytics": "7e0af43a-a44c-40fd-8bcd-0985d8ade101"
+    "analytics": false
   }
 }

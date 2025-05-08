@@ -1,0 +1,39 @@
+<h2 mat-dialog-title>Ayuda</h2>
+<mat-dialog-content class="mat-typography">
+  <h5>Ejemplo de archivo .csv para introducir</h5>
+  <p>La cabecera es opcional y el formateado también</p>
+  <pre class='code-example'>
+soilWeight, tamizDiameter
+         0,             8
+       3.4,             4
+     21.26,             2
+     34.73,             1
+     35.69,           0.5
+     31.31,          0.25
+     38.26,         0.053
+     25.37,             0 </pre>
+<hr />
+<h5>Ejemplo de archivo .csv generado</h5>
+<p>Se genera un archivo de texto plano, de tipo .csv (Coma Separated Version),
+el cual puede ser abierto con programas como Excel.</p>
+<p>No se genera el formateado, se agrego aquí para comodidad visual.</p>
+<pre class='code-example'>
+soilWeight,  tamizDiameter,  tamizDiam,  soilPortions,  MWDs    ,   totalSoil,  MWDTotal
+  0.000000,       8.000000,   6.000000,      0.017893,  0.107357,  190.020000,  0.953859829
+  3.400000,       4.000000,   3.000000,      0.111883,  0.335649,            ,
+ 21.260000,       2.000000,   1.500000,      0.182770,  0.274155,            ,
+ 34.730000,       1.000000,   0.750000,      0.187822,  0.140867,            ,
+ 35.690000,       0.500000,   0.375000,      0.164772,  0.061790,            ,
+ 31.310000,       0.250000,   0.151500,      0.201347,  0.030504,            ,
+ 38.260000,       0.053000,   0.026500,      0.133512,  0.003538,            ,
+ 25.370000,       0.000000,           ,              ,          ,            ,</pre>
+<hr />
+ <h5>Créditos</h5>
+<p>Mario Marquez V.</p>
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cerrar</button>
+  <!--<button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>-->
+</mat-dialog-actions>

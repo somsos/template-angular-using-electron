@@ -1,0 +1,70 @@
+$result-background: #f5f5f5;
+
+.results {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  width: 100%;
+  //max-width: 600px;
+  margin: auto;
+
+  @media (width <= 1080px) {
+    flex-direction: column;
+  }
+
+
+}
+
+.main-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 1rem;
+  margin-bottom: 3rem;
+
+  .one-number-result {
+    margin: auto;
+    max-width: 400px;
+    text-align: center;
+    background-color: $result-background;
+    font-weight: bold;
+    font-size: 1.5rem;
+    h3 {
+      margin-block-start: 0em;
+    }
+  }
+
+  button {
+    margin: auto;
+    max-width: 200px;
+  }
+
+}
+
+
+
+
+.secondary-info {
+  display: flex;
+  flex-wrap: wrap;
+  //flex-direction: column;
+  column-gap: 1rem;
+  row-gap: 1rem;
+  justify-content: center;
+
+  .result-rows {
+    font-size: 12px;
+    max-width: 240px;
+    background-color: $result-background;
+  }
+}
+
+
+mat-card {
+  padding: 16px;
+
+}
+
+mat-list-item {
+  font-size: 1.2rem;
+}

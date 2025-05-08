@@ -1,0 +1,117 @@
+@if (results() != null) {
+  <div class='main-info'>
+    <mat-card class="one-number-result">
+      <mat-card-title>MWD Total</mat-card-title>
+      <mat-card-content>
+        <h3>{{ results()?.MWDTotal }}</h3>
+      </mat-card-content>
+    </mat-card>
+
+    <button mat-raised-button color="accent" (click)="onClickDownloadEvent()">Descargar CSV</button>
+
+    <mat-card class="one-number-result">
+      <mat-card-title>Peso de suelo Total (g)</mat-card-title>
+      <mat-card-content>
+        <h3>{{ results()?.totalSoilWeight }}</h3>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+    <div class='secondary-info'>
+
+      <!-- Tamiz Diameter Prom -->
+      <mat-card class="result-rows">
+        <mat-card-title>DPT (mm)</mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-list>
+          <mat-list-item *ngFor="let value of results()?.tamizDiameterProm">
+            {{ value }}
+          </mat-list-item>
+        </mat-list>
+      </mat-card>
+
+      <!-- MWDs -->
+      <mat-card class="result-rows">
+        <mat-card-title>MWDi</mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-list>
+          <mat-list-item *ngFor="let value of results()?.MWDs">
+            {{ value }}
+          </mat-list-item>
+        </mat-list>
+      </mat-card>
+
+      <!-- Soil Portions -->
+      <mat-card class="result-rows">
+        <mat-card-title>PoSu (g)</mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-list>
+          <mat-list-item *ngFor="let value of results()?.soilPortions">
+            {{ value }}
+          </mat-list-item>
+        </mat-list>
+      </mat-card>
+
+    </div>
+
+} @else {
+
+<div class='main-info'>
+  <mat-card class="one-number-result">
+    <mat-card-title>MWD Total</mat-card-title>
+    <mat-card-content>
+      <h3>--</h3>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="one-number-result">
+    <mat-card-title>Peso de suelo Total (g)</mat-card-title>
+    <mat-card-content>
+      <h3>--</h3>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+  <div class='secondary-info'>
+
+    <!-- Tamiz Diameter Prom -->
+    <mat-card class="result-rows">
+      <mat-card-title>DPT (mm)</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-list>
+        <mat-list-item>--</mat-list-item>
+        <mat-list-item>--</mat-list-item>
+      </mat-list>
+    </mat-card>
+
+    <!-- MWDs -->
+    <mat-card class="result-rows">
+      <mat-card-title>MWDi</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-list>
+        <mat-list-item>--</mat-list-item>
+        <mat-list-item>--</mat-list-item>
+      </mat-list>
+    </mat-card>
+
+    <!-- Soil Portions -->
+    <mat-card class="result-rows">
+      <mat-card-title>PoSu (g)</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-list>
+        <mat-list-item>--</mat-list-item>
+        <mat-list-item>--</mat-list-item>
+      </mat-list>
+    </mat-card>
+
+  </div>
+
+}
+<div style='text-align: center;'>
+  <ul>
+    <li><b>MWDi</b> = Diámetro medio ponderado individual</li>
+    <li><b>PeSu</b> = Peso de suelo</li>
+    <li><b>DPT</b> = Diámetro promedio Tamiz</li>
+    <li><b>PoSu</b> = Porción de suelo</li>
+  </ul>
+</div>

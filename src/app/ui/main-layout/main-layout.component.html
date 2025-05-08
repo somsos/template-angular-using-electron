@@ -1,0 +1,29 @@
+<header class='main-header'>
+
+  <div class='left-header'>
+    <img src='favicon.ico' alt="AppIcon" />
+    <h3>Calculadora Diámetro Medio Ponderado</h3>
+  </div>
+
+  <div class='right-header'>
+    <button mat-button (click)="openDialog()">Ayuda</button>
+  </div>
+</header>
+
+<hr />
+
+<div id='calc-container'>
+
+  <app-mwd-samples
+    (sampleSubmitted)='onSubmitSample($event)'
+    (resetClick)='onResetClick()'
+  />
+
+@defer {
+  <mwd-results
+    [results]='results'
+    (downloadClick)='downloadCsv()'
+  />
+}
+
+</div>

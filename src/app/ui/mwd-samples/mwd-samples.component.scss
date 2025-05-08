@@ -1,0 +1,67 @@
+
+
+.table-container {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+
+  @media (width <= 450px) {
+    flex-direction: column;
+  }
+
+  table {
+    width: 280px;
+    border-collapse: collapse;
+
+    @media (width < 450px) {
+      margin: 0 auto;
+    }
+
+    @media (width >= 450px) {
+      margin-right: 1rem;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 4px 8px;
+      text-align: center;
+      input {
+        width: 100%;
+        appearance: textfield;
+      }
+    }
+
+    th {
+      text-wrap: wrap;
+      background-color: #f5f5f5;
+      font-weight: bold;
+    }
+
+  }
+
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1rem;
+    justify-content: start;
+
+    @media (width <= 450px) {
+      flex-direction: row;
+    }
+
+    button {
+      max-width: 200px;
+      margin: 0 auto;
+    }
+  }
+
+}
+

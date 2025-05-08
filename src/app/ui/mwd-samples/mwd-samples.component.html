@@ -1,0 +1,72 @@
+<mwd-history
+  *ngIf="showHistory$()"
+  (recordClick)='insertSample($event)'
+  (backFromHistory)='showHistory$.set(false)'
+/>
+
+<div class="table-container" *ngIf="showHistory$() === false">
+  <form [formGroup]="form">
+    <table>
+      <thead>
+        <tr>
+          <th>Diámetro tamiz (mm)</th>
+          <th>Peso de suelo (g)</th>
+        </tr>
+      </thead>
+      <tbody formArrayName="rows">
+        <tr *ngFor="let row of rows().controls; let i = index" [formGroupName]="i">
+          <td>
+            <input
+              formControlName="tamizDiameter"
+              type="text"
+              inputmode="numeric"
+              [attr.id]="i == 0 ? 'first-input' : null"
+              (input)="updateRow(i, 'tamizDiameter', $event)"
+              (focusout)="checksOnUnfocus(i, 'tamizDiameter', $event)"
+            />
+          </td>
+          <td>
+            <input
+              formControlName="soilWeight"
+              type="text"
+              inputmode="numeric"
+              (input)="updateRow(i, 'soilWeight', $event)"
+              (focusout)="checksOnUnfocus(i, 'soilWeight', $event)"
+            />
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan='2'>
+            <button mat-raised-button (click)="removeLastRow()">-</button>
+            <button mat-raised-button (click)="addRow()">+</button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </form>
+
+  <div class="button-container">
+
+    <button mat-raised-button
+      (click)="showHistory$.set(true)"
+      >Historial</button>
+
+    <input hidden (change)="onSelectFile($event)" #fileInput type="file" accept=".csv">
+
+    <button mat-raised-button
+      color="accent"
+      (click)="onClickReset()">Limpiar</button>
+
+    <button mat-raised-button
+      (click)="fileInput.click()"
+      >Insertar csv</button>
+
+    <button mat-flat-button
+      color="primary"
+      (click)="onClickSubmit()"
+    >Calcular</button>
+
+  </div>
+</div>
